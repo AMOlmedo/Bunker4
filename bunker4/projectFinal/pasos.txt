@@ -1,0 +1,13 @@
+on este plan cumplís TODOS los requisitos:
+
+≥2 containers (front/back)
+
+Ansible como CM
+
+GitHub Actions para CI/CD
+
+Docker Swarm + Prometheus/Grafana para SRE
+
+Sistema público en un VPS/LXD
+
+README.md, screenshots y LICENSE
