@@ -1,0 +1,101 @@
+
+PROYECTO FINAL BUNKER4
+
+1- Crear una carpeta de project y luego las carperpetas de Front y Back dentro.
+	$mkdir project && cd project
+	$mkdir frontend && mkdir backend  && cd backend
+	$ code .
+	
+2- Avtivar el ambiente virtual de py para que las dependencias se instalen solamente aca.
+
+	$python3 -m venv venv 
+	# para que se instalen todas las dependencias solo en este proyecto.
+	
+	$source venv/bin/activate
+	# para activar el entorno virtual. Se tiene que ver (venc)
+
+3- Instala las dependencias necesarias. Asegurarse de estar en venv
+	venv)$pip install fastapi uvicorn sqlalchemy pymysql
+
+	SQLAlchemy es una librería de Python que facilita la interacción con bases de datos relacionales. Permite a los desarrolladores trabajar con bases de datos mediante objetos Python, en lugar de escribir consultas SQL directamente. También ofrece herramientas para la gestión de tablas y la creación de consultas complejas. 
+
+	PyMySQL es una biblioteca de Python para interactuar con bases de datos MySQL, escrita completamente en Python.
+
+4- Crear el requierements.txt con todas las dependencias instaladas para futuras usos.
+
+	$pip freeze > requirements.txt 
+
+5- Iniciar GIT
+
+	$git init
+	#crear .gitignore con www.toptal.com  (crea automaticamente el ignore a nuestras necesidades.
+
+6- Ejecutar el servidor web
+
+	$$uvicorn main:app --reload
+
+
+		DOCKER
+
+#creacion del conteiner de la base de datos:
+adrian@NOTEBOOK:~/bunker4/projectFinal/backend$ docker run --name db_mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 -d  mysql
+
+Ingresamos al contenedor para crear la base TEST
+
+adrian@NOTEBOOK:~/bunker4/projectFinal/backend$ docker exec -it db_mysql bash
+
+ingresamos a MYSQL utilizamos el -p para poder utilizar el pass 12345 en este caso
+
+bash-5.1# mysql -p     
+
+Entramos a al base de datos y vemos q tiene
+
+mysql> show databases;     (IMPORTANTE EL  ;)
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.022 sec)
+
+mysql>
+
+crear la base de datos test
+
+mysql> create database test;
+Query OK, 1 row affected (0.025 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+5 rows in set (0.002 sec)
+
+mysql>
+
+mysql>
+mysql> use test;
+Database changed
+mysql> show tables;   //vemos que la base esta vacia
+Empty set (0.003 sec)
+
+mysql>
+
+
+
+#Requerido para iniciar el servidor
+
+$pip install cryptografy
+
+$ pip install python-dotenv    //modulo para mejorar la conexion con la db con variables de entorno.
+
+
