@@ -96,6 +96,32 @@ mysql>
 
 $pip install cryptografy
 
-$ pip install python-dotenv    //modulo para mejorar la conexion con la db con variables de entorno.
+$ pip install python-dotenv    //modulo para mejorar la conexion con la db con variables de entorno
+
+
+Finalmente se creo un nuevo contenedor sin exponer el puerto conectado a una nueva red interna de docker.
+
+Sdocker network create bunker4
+
+$docker network connect bunker4 db_bunker4
+
+
+==============   BACKEND  EN EL CONTENEDOR  ==============
+
+creamos el contenedor 
+
+$ docker run -dit --name backend -p 8000:8000 -w /app -v /home/adrian/bunker4/projectFinal/backend:/app python
+
+$docker network  connect bunker4 backend
+
+$docker exec -it backend bash
+
+dentro del server backend instalamos las dependencias...
+
+root@3497bed4a1fe:/app# pip install -r requirements.txt
+
+ahora ejecutamos el server pero agregando --hostname 0.0.0.0  para q se puerda ejecutar desde el browser nuestro.
+
+root@3497bed4a1fe:/app# uvicorn main:app --reload --host 0.0.0.0
 
 

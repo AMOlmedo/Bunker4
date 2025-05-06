@@ -1,0 +1,5 @@
+
+COMANDOS LINUX UTILIZADOS FRECUENTEMENTE:
+
+$cd bunker4/projectFinal/backend/ && source venv/bin/activate
+
