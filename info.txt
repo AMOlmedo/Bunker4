@@ -17,7 +17,9 @@ PROYECTO FINAL BUNKER4
 3- Instala las dependencias necesarias. Asegurarse de estar en venv
 	venv)$pip install fastapi uvicorn sqlalchemy pymysql
 
-	SQLAlchemy es una librería de Python que facilita la interacción con bases de datos relacionales. Permite a los desarrolladores trabajar con bases de datos mediante objetos Python, en lugar de escribir consultas SQL directamente. También ofrece herramientas para la gestión de tablas y la creación de consultas complejas. 
+	SQLAlchemy es una librería de Python que facilita la interacción con bases de datos relacionales. 
+Permite a los desarrolladores trabajar con bases de datos mediante objetos Python, en lugar de escribir consultas SQL directamente. 
+También ofrece herramientas para la gestión de tablas y la creación de consultas complejas. 
 
 	PyMySQL es una biblioteca de Python para interactuar con bases de datos MySQL, escrita completamente en Python.
 
@@ -35,7 +37,7 @@ PROYECTO FINAL BUNKER4
 	$$uvicorn main:app --reload
 
 
-		DOCKER
+===================== DOCKER ======================================
 
 #creacion del conteiner de la base de datos:
 adrian@NOTEBOOK:~/bunker4/projectFinal/backend$ docker run --name db_mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 -d  mysql
@@ -108,6 +110,8 @@ $docker network connect bunker4 db_bunker4
 
 ==============   BACKEND  EN EL CONTENEDOR  ==============
 
+https://www.youtube.com/watch?v=4Phvq6qdG4w
+
 creamos el contenedor 
 
 $ docker run -dit --name backend -p 8000:8000 -w /app -v /home/adrian/bunker4/projectFinal/backend:/app python
@@ -123,5 +127,10 @@ root@3497bed4a1fe:/app# pip install -r requirements.txt
 ahora ejecutamos el server pero agregando --hostname 0.0.0.0  para q se puerda ejecutar desde el browser nuestro.
 
 root@3497bed4a1fe:/app# uvicorn main:app --reload --host 0.0.0.0
+
+Ahora creamos el contenedor del frontend y lo conectamos a la red de docker correspondiente
+
+docker run -dit --name frontend -p 3000:3000 -w /app -v /home/adrian/bunker4/projectFinal/frontend:/app  node
+
 
 
