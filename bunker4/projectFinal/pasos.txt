@@ -1,6 +1,6 @@
-on este plan cumplís TODOS los requisitos:
+En este plan cumplís TODOS los requisitos:
 
-≥2 containers (front/back)
+≥2 containers (front/back/db)
 
 Ansible como CM
 
