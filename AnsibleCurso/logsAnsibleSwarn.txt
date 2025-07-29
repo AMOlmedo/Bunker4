@@ -1,0 +1,125 @@
+[
+    {
+        "ID": "je37yr5135hskibraj7x3kfpq",
+        "Version": {
+            "Index": 8207
+        },
+        "CreatedAt": "2025-04-07T22:07:17.430486973Z",
+        "UpdatedAt": "2025-04-07T22:07:17.430486973Z",
+        "Spec": {
+            "Name": "ansible",
+            "Labels": {},
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "alpine:latest@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c",
+                    "Init": false,
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {},
+                    "Isolation": "default"
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Platforms": [
+                        {
+                            "Architecture": "amd64",
+                            "OS": "linux"
+                        },
+                        {
+                            "Architecture": "unknown",
+                            "OS": "unknown"
+                        },
+                        {
+                            "OS": "linux"
+                        },
+                        {
+                            "Architecture": "unknown",
+                            "OS": "unknown"
+                        },
+                        {
+                            "OS": "linux"
+                        },
+                        {
+                            "Architecture": "unknown",
+                            "OS": "unknown"
+                        },
+                        {
+                            "Architecture": "arm64",
+                            "OS": "linux"
+                        },
+                        {
+                            "Architecture": "unknown",
+                            "OS": "unknown"
+                        },
+                        {
+                            "Architecture": "386",
+                            "OS": "linux"
+                        },
+                        {
+                            "Architecture": "unknown",
+                            "OS": "unknown"
+                        },
+                        {
+                            "Architecture": "ppc64le",
+                            "OS": "linux"
+                        },
+                        {
+                            "Architecture": "unknown",
+                            "OS": "unknown"
+                        },
+                        {
+                            "Architecture": "riscv64",
+                            "OS": "linux"
+                        },
+                        {
+                            "Architecture": "unknown",
+                            "OS": "unknown"
+                        },
+                        {
+                            "Architecture": "s390x",
+                            "OS": "linux"
+                        },
+                        {
+                            "Architecture": "unknown",
+                            "OS": "unknown"
+                        }
+                    ]
+                },
+                "ForceUpdate": 0,
+                "Runtime": "container"
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 3
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip"
+            }
+        },
+        "Endpoint": {
+            "Spec": {}
+        }
+    }
+]
